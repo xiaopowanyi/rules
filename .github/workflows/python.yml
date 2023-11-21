@@ -16,7 +16,7 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.11
-    - name: Run and Push
+    - name: Pull and Run
       run: |
          git config --local user.email "1141101853@qq.com"
          git config --local user.name "xiaopowanyi"
