@@ -18,12 +18,18 @@ jobs:
         python-version: 3.11
     - name: Run and Push
       run: |
-         git config user.name 'github-actions[bot]'
-         git config user.email 'github-actions[bot]@users.noreply.github.com'
+         git config --local user.email "1141101853@qq.com"
+         git config --local user.name "xiaopowanyi"
          git pull
          python -m pip install --upgrade pip
          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
          python run.py
+    - name: Commit files
+      run: |
          git add .
          git commit -m "update files"
-         git push -f origin main
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+         github_token: ${{ secrets.MY_GIT_TOKEN }}
+         branch: main
